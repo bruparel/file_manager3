@@ -1,0 +1,14 @@
+development:
+  bucket: bucket name here
+  access_key_id: access key id here
+  secret_access_key: super secret key
+
+test:
+  bucket: bucket name here
+  access_key_id: access key id here
+  secret_access_key: super secret key
+
+production:
+  bucket: bucket name here
+  access_key_id: access key id here
+  secret_access_key: super secret key

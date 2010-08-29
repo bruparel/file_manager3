@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<title>
+The Internet File Manager
+</title>
+<link href="/stylesheets/web_app_theme.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/themes/default/style.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/web_app_theme_ext.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.theme.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.core.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.accordion.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/jquery.cluetip.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<script src="/javascripts/jquery.js?1282143055" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1282143069" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/jquery.hoverIntent.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/jquery.cluetip.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/application.js?1281401391" type="text/javascript"></script>
+
+</head>
+<body>
+<div id='container'>
+<div id='header'>
+<h1>
+<a href='/'>The Internet File Manager</a>
+</h1>
+<h4 id='current-user'>
+
+</h4>
+<h4 id='current-client'>
+
+</h4>
+<div id='user-navigation'>
+<ul>
+<li>
+<a href="/login">Login</a>
+</li>
+</ul>
+<div class='clear'></div>
+</div>
+<div id='main-navigation'>
+<ul class="navigation"><li class=""><a href="/">Welcome</a></li></ul>
+
+<div class='clear'></div>
+</div>
+</div>
+<div id='wrapper'>
+<div id='main'>
+<div class='block'>
+<div class='secondary-navigation'>
+
+<div class='clear'></div>
+</div>
+<div class='content'>
+<div class='inner'>
+<div class='flash'>
+</div>
+<h3>
+Log in
+</h3>
+<form accept-charset="UTF-8" action="/user_sessions" class="new_user_session" id="new_user_session" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<p>
+<label for="user_session_username">Username</label>
+<br>
+<input id="user_session_username" name="user_session[username]" size="30" type="text" />
+</p>
+<p>
+<label for="user_session_password">Password</label>
+<br>
+<input id="user_session_password" name="user_session[password]" size="30" type="password" />
+</p>
+<p>
+<input id="user_session_submit" name="commit" type="submit" value="Log in" />
+</p>
+</form>
+
+</div>
+</div>
+<div class='secondary-navigation'></div>
+</div>
+<div id='footer'>
+<div class='block'>
+<p>
+<span id='privacy-statement'>
+<a href="/display_privacy_statement">Privacy Statement</a>
+</span>
+<span>
+Copyright &copy; 2009  The Example Group of Companies.
+</span>
+</p>
+</div>
+</div>
+</div>
+<div id='sidebar'>
+<div class='block'>
+<h3>
+Contact us:
+</h3>
+<div class='content'>
+<p>
+<strong>
+Contact:
+</strong>
+John Smith
+</p>
+<p>
+<strong>
+Phone:
+</strong>
+(111) 222 3333
+</p>
+<p>
+<strong>
+Fax:
+</strong>
+(111) 222 4444
+</p>
+<p>
+<strong>
+Mobile:
+</strong>
+(111) 222 5555
+</p>
+<p>
+<strong>
+Email:
+</strong>
+<a href='mailto:jsmith@example.com'>
+jsmith@example.com
+</a>
+</p>
+</div>
+</div>
+
+</div>
+<div class='clear'></div>
+</div>
+</div>
+</body>
+</html>
+<script type='text/javascript'>
+  //<![CDATA[
+    $(document).ready(function() {
+      $("#accordion").accordion({ autoHeight: false, event: 'mouseover' });
+      $(".tip").cluetip( {width: 650, arrows: true} );
+    })
+  //]]>
+</script>

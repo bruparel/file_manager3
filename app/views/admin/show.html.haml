@@ -1,0 +1,9 @@
+%title
+  = @controller_name.singularize.humanize
+%p
+  %strong
+    Name:
+  =h @current_object.name
+= link_to 'Edit', :controller => @controller_name, :action => 'edit', :id => @current_object.id
+|
+= link_to 'Back', :controller => @controller_name, :action => 'index'

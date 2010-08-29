@@ -1,0 +1,8 @@
+%h1
+  = "Editing #{@controller_name.humanize}"
+= labeled_form_for @current_object, :html => {:class => 'form'} do |f|
+  = f.text_field :name
+  = f.submit "Update"
+= link_to 'Show', @current_object
+|
+= link_to 'Back', :controller => @controller_name, :action => 'index'

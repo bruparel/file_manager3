@@ -1,0 +1,7 @@
+= labeled_form_for @document, :html => {:class => 'form', :multipart => true} do |f|
+  = f.hidden_field :folder_id
+  = f.text_field :title, :size => 90
+  = f.file_field :doc, :label => '<strong>Document</strong>'
+  = f.text_area :description, :rows => 8, :cols => 103
+  = f.collection_select :document_status_id, DocumentStatus.all, :id, :name
+  = f.submit 'Submit', :cancel => {:action => 'index'}

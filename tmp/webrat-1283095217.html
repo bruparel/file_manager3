@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<title>
+The Internet File Manager
+</title>
+<link href="/stylesheets/web_app_theme.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/themes/default/style.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/web_app_theme_ext.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.theme.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.core.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/ui.accordion.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/jquery.cluetip.css?1281401391" media="screen" rel="stylesheet" type="text/css" />
+<script src="/javascripts/jquery.js?1282143055" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1282143069" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/jquery.hoverIntent.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/jquery.cluetip.js?1281401391" type="text/javascript"></script>
+<script src="/javascripts/application.js?1281401391" type="text/javascript"></script>
+
+</head>
+<body>
+<div id='container'>
+<div id='header'>
+<h1>
+<a href='/'>The Internet File Manager</a>
+</h1>
+<h4 id='current-user'>
+User: Administrator - (Administrator)
+</h4>
+<h4 id='current-client'>
+
+</h4>
+<div id='user-navigation'>
+<ul>
+<li>
+<a href="/help">Help</a>
+</li>
+<li>
+<a href="/change">Change Password</a>
+</li>
+<li>
+<a href="/logout">Logout</a>
+</li>
+</ul>
+<div class='clear'></div>
+</div>
+<div id='main-navigation'>
+<ul class="navigation"><li class=""><a href="/clients">Clients</a></li>
+<li class=""><a href="/folders">Folders</a></li>
+<li class=""><a href="/documents">Documents</a></li>
+<li class=""><a href="/users">Users</a></li>
+<li class=""><a href="/client_perms">Client Perms</a></li>
+<li class=""><a href="/folder_perms">Folder Perms</a></li>
+<li class=""><a href="/admin">Admin</a></li></ul>
+
+<div class='clear'></div>
+</div>
+</div>
+<div id='wrapper'>
+<div id='main'>
+<div class='block'>
+<div class='secondary-navigation'>
+<ul class="navigation"><li class=""><a href="/client_statuses">Client Statuses</a></li>
+<li class=""><a href="/document_statuses">Document Statuses</a></li>
+<li class="active"><a href="/base_folders">Base Folders</a></li></ul>
+
+<div class='clear'></div>
+</div>
+<div class='content'>
+<div class='inner'>
+<div class='flash'>
+<p class="message notice">Logged in successfully.</p>
+</div>
+<h3>
+<a href="/base_folders" class="tip" rel="help/base_folders" title="Base folders">Base folders</a>
+</h3>
+<form accept-charset="UTF-8" action="/base_folders" class="form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<input checked="checked" id="which_action_Search" name="which_action" type="radio" value="Search" />
+<a href="/base_folders" class="tip" rel="help/search.html" title="Search:">Search:</a>
+<select id="search_by" name="search_by"><option value="Name">Name</option></select>
+<input id="search" name="search" type="text" />
+<input type="submit" value="Submit" />
+<div class='clear'></div>
+</form>
+
+<table class='table'>
+<tr>
+<th class='first'>
+Id
+</th>
+<th>
+Name
+</th>
+<th>
+Created at
+</th>
+<th>
+Updated at
+</th>
+<th class='last'>
+&nbsp;
+</th>
+</tr>
+<tr class='odd'>
+<td class='first'>
+1
+</td>
+<td>
+folder1
+</td>
+<td>
+2010-08-29 10:20:17 -0500
+</td>
+<td>
+2010-08-29 10:20:17 -0500
+</td>
+<td>
+<a href="/base_folders/1/edit">Edit</a>
+|
+<a href="/base_folders/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a>
+</td>
+</tr>
+<tr class='even'>
+<td class='first'>
+2
+</td>
+<td>
+folder2
+</td>
+<td>
+2010-08-29 10:20:17 -0500
+</td>
+<td>
+2010-08-29 10:20:17 -0500
+</td>
+<td>
+<a href="/base_folders/2/edit">Edit</a>
+|
+<a href="/base_folders/2" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a>
+</td>
+</tr>
+</table>
+<div class='actions-bar'>
+<div class='actions'>
+<a href="/base_folders/new">New</a>
+</div>
+<div class='pagination'>
+
+</div>
+<div class='clear'></div>
+</div>
+
+
+</div>
+</div>
+<div class='secondary-navigation'></div>
+</div>
+<div id='footer'>
+<div class='block'>
+<p>
+<span id='privacy-statement'>
+<a href="/display_privacy_statement">Privacy Statement</a>
+</span>
+<span>
+Copyright &copy; 2009  The Example Group of Companies.
+</span>
+</p>
+</div>
+</div>
+</div>
+<div id='sidebar'>
+<div class='block'>
+<h3>
+Contact us:
+</h3>
+<div class='content'>
+<p>
+<strong>
+Contact:
+</strong>
+<a href="/base_folders" class="tip" rel="images/john_smith.jpg" title="John Smith">John Smith</a>
+</p>
+<p>
+<strong>
+Phone:
+</strong>
+(111) 222 3333
+</p>
+<p>
+<strong>
+Fax:
+</strong>
+(111) 222 4444
+</p>
+<p>
+<strong>
+Mobile:
+</strong>
+(111) 222 5555
+</p>
+<p>
+<strong>
+Email:
+</strong>
+<a href='mailto:jsmith@example.com'>
+jsmith@example.com
+</a>
+</p>
+</div>
+</div>
+<div class='block'>
+<h3>
+Switch Theme
+</h3>
+<ul class='navigation'>
+<li>
+<a href="/base_folders" class="tip" rel="help/themes.html" title="<em>How to Switch Themes:</em>"><em>How to Switch Themes:</em></a>
+</li>
+<li>
+<a href="/set_theme?id=default">Default</a>
+</li>
+<li>
+<a href="/set_theme?id=bec">Bec</a>
+</li>
+<li>
+<a href="/set_theme?id=bec-green">Bec-Green</a>
+</li>
+<li>
+<a href="/set_theme?id=blue">Blue</a>
+</li>
+<li>
+<a href="/set_theme?id=djime-cerulean">Djime-Cerulean</a>
+</li>
+<li>
+<a href="/set_theme?id=reidb-greenish">Greenish</a>
+</li>
+<li>
+<a href="/set_theme?id=kathleene">Kathleene</a>
+</li>
+<li>
+<a href="/set_theme?id=orange">Orange</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class='clear'></div>
+</div>
+</div>
+</body>
+</html>
+<script type='text/javascript'>
+  //<![CDATA[
+    $(document).ready(function() {
+      $("#accordion").accordion({ autoHeight: false, event: 'mouseover' });
+      $(".tip").cluetip( {width: 650, arrows: true} );
+    })
+  //]]>
+</script>
+

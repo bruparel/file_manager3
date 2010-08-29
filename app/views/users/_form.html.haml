@@ -1,0 +1,17 @@
+= labeled_form_for @user, :html => {:class => 'form'} do |f|
+  = f.error_message_on :base
+  .columns
+    .column.left
+      = f.text_field :username
+      = f.text_field :display_name
+      = f.text_field :email, :label => "Email Address"
+      = f.password_field :password
+      = f.password_field :password_confirmation, :label => "Confirm Password"
+      - if is_admin?
+        = f.submit 'Submit', :cancel => {:action => 'index'}
+    .column.right
+      = f.check_box :active
+      = f.collection_select :role_id, Role.all, :id, :display_name
+      = f.collection_select :client_id, Client.all, :id, :client_name, {:include_blank => true}
+      = f.text_area :comment, :rows => 7, :cols => 50
+    .clear

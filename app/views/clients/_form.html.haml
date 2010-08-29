@@ -1,0 +1,24 @@
+= labeled_form_for @client, :html => {:class => 'form'} do |f|
+  = f.error_message_on :base
+  .columns
+    .column.left
+      = f.text_field :client_name
+      = f.text_field :contact_name
+      = f.text_field :address1
+      = f.text_field :address2
+      = f.text_field :city
+      = f.select(:state, us_state_names_and_codes)
+      = f.text_field :zip
+      - if is_admin?
+        = f.collection_select :client_status_id, ClientStatus.all, :id, :name
+        = f.submit 'Submit', :cancel => {:action => 'index'}
+      - else
+        = f.hidden_field :client_status_id
+        = f.submit
+    .column.right
+      = f.text_field :phone
+      = f.text_field :mobile
+      = f.text_field :fax
+      = f.text_area :comment, :rows => 7, :cols => 50
+  .clear
+

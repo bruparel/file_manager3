@@ -1,0 +1,9 @@
+%h1
+  = "Editing Document Status"
+= labeled_form_for @document_status, :html => {:class => 'form'} do |f|
+  = f.text_field :name
+  = f.submit "Update"
+= link_to 'Show', @document_status
+|
+= link_to 'Back', :action => 'index'
+

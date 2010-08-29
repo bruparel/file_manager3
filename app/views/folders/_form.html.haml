@@ -1,0 +1,7 @@
+= labeled_form_for @folder, :html => {:class => 'form'} do |f|
+  = f.hidden_field :client_id
+  = f.hidden_field :parent_id, :value => @parent_id
+  = f.text_field :name
+  - unless is_eclient? || is_staff?
+    = f.check_box :eclient_flag, :label => 'Allow Edit and Delete for External Client?'
+  = f.submit 'Submit', :cancel => {:action => 'index'}

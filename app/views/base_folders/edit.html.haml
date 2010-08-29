@@ -1,0 +1,9 @@
+%h1
+  = "Editing Base Folder"
+= labeled_form_for @base_folder, :html => {:class => 'form'} do |f|
+  = f.text_field :name
+  = f.submit "Update"
+= link_to 'Show', @base_folder
+|
+= link_to 'Back', :action => 'index'
+

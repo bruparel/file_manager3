@@ -1,0 +1,9 @@
+%h1
+  = "Editing Client Status"
+= labeled_form_for @client_status, :html => {:class => 'form'} do |f|
+  = f.text_field :name
+  = f.submit "Update"
+= link_to 'Show', @client_status
+|
+= link_to 'Back', :action => 'index'
+
