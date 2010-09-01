@@ -14,7 +14,8 @@ class FolderPermsController < ApplicationController
       folder.update_attribute(:permit, true)
     end
     # display all folders for staff user permission assignment - no pagination
-    @folders = Folder.find(:all, :conditions => ["client_id = ?", pid], :order => "parent_id")
+    #@folders = Folder.find(:all, :conditions => ["client_id = ?", pid], :order => "parent_id")
+    @folders = Folder.where("client_id = ?", pid).order("parent_id")
   end
 
   def assign

@@ -41,8 +41,8 @@ class ApplicationController < ActionController::Base
   end
 
 #  def ssl_required?
-#    return false if ['development'].include?(RAILS_ENV)
-#    (ENV['RAILS_ENV'] == "production" || !local_request?) && (self.class.read_inheritable_attribute(:ssl_required_actions) || []).include?(action_name.to_sym)
+#    return false if ['development'].include?(Rails.env)
+#    (ENV['Rails.env'] == "production" || !local_request?) && (self.class.read_inheritable_attribute(:ssl_required_actions) || []).include?(action_name.to_sym)
 #  end
 
   def send_email(commented_on_user_model, commenting_user_id, email_subject, email_text)
@@ -50,12 +50,12 @@ class ApplicationController < ActionController::Base
     # create email and send it to right recipients depending on their roles
     if is_internal?
       # mail going from us to client
-      UserMailer.deliver_comment_email_from_us(commented_on_user_model, commenting_user,
-                                                 email_subject, email_text)
+      UserMailer.comment_email_from_us(commented_on_user_model, commenting_user,
+                                                 email_subject, email_text).deliver
     else
       # mail from client to us, get user email id
-      UserMailer.deliver_comment_email_to_us(commented_on_user_model, commenting_user,
-                                               email_subject, email_text)
+      UserMailer.comment_email_to_us(commented_on_user_model, commenting_user,
+                                               email_subject, email_text).deliver
     end
   end
 
