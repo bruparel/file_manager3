@@ -31,8 +31,7 @@ class ClientsController < ApplicationController
       if current_user.client
         @client = Client.find(current_user.client_id)
       else
-        flash[:notice] = "Please ask the Admin to setup your client."
-        redirect_to login_path
+        redirect_to login_path, :notice => "Please ask the Admin to setup your client."
       end
     else                # admin accessing this form, normal find is ok
       @client = Client.find(params[:id])
@@ -47,8 +46,7 @@ class ClientsController < ApplicationController
     @client = Client.new(params[:client])
     if @client.save
       session[:client_id] = @client.id
-      flash[:notice] = 'Basic Info successfully saved. Please proceed to create folders to store documents.'
-      redirect_to folders_path
+      redirect_to folders_path, :notice => 'Basic Info successfully saved. Please proceed to create folders to store documents.'
     else
       render :action => (is_internal? ? 'new' : 'edit')
     end
@@ -69,8 +67,7 @@ class ClientsController < ApplicationController
   def destroy
     @client = Client.find(params[:id])
     @client.destroy
-    flash[:warning] = "Successfully destroyed client record."
-    redirect_to clients_path
+    redirect_to clients_path, :alert => "Successfully destroyed client record."
   end
 
   def set_current_client
@@ -78,8 +75,7 @@ class ClientsController < ApplicationController
     session[:folder_id] = nil
     session[:nested_folder_id] = nil
     session[:client_id] = @client.id
-    flash[:notice] = "Current client set to #{current_client.client_name}. Select the desired folder by clicking on set link."
-    redirect_to folders_path
+    redirect_to folders_path, :notice => "Current client set to #{current_client.client_name}. Select the desired folder by clicking on set link."
   end
 
   protected

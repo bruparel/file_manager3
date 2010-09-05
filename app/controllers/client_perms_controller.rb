@@ -37,15 +37,14 @@ class ClientPermsController < ApplicationController
       ClientPerm.create!(:user_id => uid, :client_id => pr)
     end
     # coming out, permissions should be all set, display flash message and navigate accordingly
-    flash[:notice] = "Permissions assigned as shown."
-    redirect_to :action => 'index'
+    redirect_to :client_perms_path, :notice => "Permissions assigned as shown."
   end
 
   def set_current_staff_user_client
     @client = Client.find(params[:id])
     session[:staff_user_client_id] = @client.id
     flash[:notice] = "Current client set to #{@client.client_name}. Assign permissions for the desired folders."
-    redirect_to folder_perms_path
+    redirect_to folder_perms_path, :notice => "Current client set to #{@client.client_name}. Assign permissions for the desired folders."
   end
 
   def delete_perms

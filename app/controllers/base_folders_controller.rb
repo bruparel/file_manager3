@@ -21,8 +21,7 @@ class BaseFoldersController < AdminController
   def create
     @base_folder = BaseFolder.new(params[:base_folder])
     if @base_folder.save
-      flash[:notice] = "Base folder was successfully created."
-      redirect_to :base_folder
+      redirect_to :base_folder, :notice => "Base folder was successfully created."
     else
       render :action => 'new'
     end
@@ -36,8 +35,7 @@ class BaseFoldersController < AdminController
   def update
     @base_folder = BaseFolder.find(params[:id])
     if @base_folder.update_attributes(params[:base_folder])
-      flash[:notice] = "Base folder was successfully updated."
-      redirect_to :action => 'index'
+      redirect_to :base_folders, :notice => "Base folder was successfully updated."
     else
       render :action => "edit"
     end
@@ -46,8 +44,7 @@ class BaseFoldersController < AdminController
   def destroy
     @base_folder = BaseFolder.find(params[:id])
     @base_folder.destroy
-    flash[:warning] = "Base folder sucessfully destroyed."
-    redirect_to :action => 'index'
+    redirect_to :base_folders, :alert => "Base folder sucessfully destroyed."
   end
 
 end

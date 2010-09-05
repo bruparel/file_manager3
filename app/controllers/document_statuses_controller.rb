@@ -21,8 +21,7 @@ class DocumentStatusesController < AdminController
   def create
     @document_status = Documentstatus.new(params[:document_status])
     if @document_status.save
-      flash[:notice] = "Document status was successfully created."
-      redirect_to :document_statuses
+      redirect_to :document_statuses, :notice => "Document status was successfully created."
     else
       render :action => 'new'
     end
@@ -37,7 +36,7 @@ class DocumentStatusesController < AdminController
     @document_status = DocumentStatus.find(params[:id])
     if @document_status.update_attributes(params[:document_status])
       flash[:notice] = "Document status was successfully updated."
-      redirect_to :action => 'index'
+      redirect_to :document_statuses, :notice => "Document status was successfully updated."
     else
       render :action => "edit"
     end
@@ -46,8 +45,7 @@ class DocumentStatusesController < AdminController
   def destroy
     @document_status = DocumentStatus.find(params[:id])
     @document_status.destroy
-    flash[:warning] = "Document status sucessfully destroyed."
-    redirect_to :action => 'index'
+    redirect_to :document_statuses, :alert => "Document status sucessfully destroyed."
   end
 
 end

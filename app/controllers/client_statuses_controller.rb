@@ -21,8 +21,7 @@ class ClientStatusesController < ApplicationController
   def create
     @client_status = ClientStatus.new(params[:client_status])
     if @client_status.save
-      flash[:notice] = "Client status was successfully created."
-      redirect_to :client_statuses
+      redirect_to :client_statuses, :notice => "Client status was successfully created."
     else
       render :action => 'new'
     end
@@ -36,8 +35,7 @@ class ClientStatusesController < ApplicationController
   def update
     @client_status = ClientStatus.find(params[:id])
     if @client_status.update_attributes(params[:client_status])
-      flash[:notice] = "Client status was successfully updated."
-      redirect_to :action => 'index'
+      redirect_to :client_statuses, :notice => "Client status was successfully updated."
     else
       render :action => "edit"
     end
@@ -46,8 +44,7 @@ class ClientStatusesController < ApplicationController
   def destroy
     @client_status = ClientStatus.find(params[:id])
     @client_status.destroy
-    flash[:warning] = "Client status sucessfully destroyed."
-    redirect_to :action => 'index'
+    redirect_to :client_statuses, :alert => "Client status sucessfully destroyed."
   end
 
 end

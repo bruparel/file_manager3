@@ -37,8 +37,7 @@ class FoldersController < ApplicationController
     if @folder.save
       session[:folder_id] = @folder.id
       session[:nested_folder_id] = nil
-      flash[:notice] = "Successfully created folder."
-      redirect_to folders_url
+      redirect_to folders_url, :notice => "Successfully created folder."
     else
       render :action => 'new'
     end
@@ -53,8 +52,7 @@ class FoldersController < ApplicationController
     if @folder.update_attributes(params[:folder])
       session[:folder_id] = @folder.id
       session[:nested_folder_id] = nil
-      flash[:notice] = "Successfully updated folder."
-      redirect_to folders_url
+      redirect_to folders_url, :notice => "Successfully updated folder."
     else
       render :action => 'edit'
     end
@@ -63,8 +61,7 @@ class FoldersController < ApplicationController
   def destroy
     @folder = current_client.folders.find(params[:id])
     @folder.destroy
-    flash[:notice] = "Successfully deleted folder."
-    redirect_to folders_url
+    redirect_to folders_url, :notice => "Successfully deleted folder."
   end
 
   def populate
@@ -84,11 +81,9 @@ class FoldersController < ApplicationController
     session[:nested_folder_id] = nil
     unless @folder.client_id.blank?
       session[:folder_id] = @folder.id
-      flash[:notice] = "Current folder set to #{current_folder.name}"
-      redirect_to documents_path
+      redirect_to documents_path, :notice => "Current folder set to #{current_folder.name}"
     else             # this should not happen, yet just in case
-      flash[:warning] = "Please associate this folder with corresponding client first."
-      redirect_to(:action => 'edit', :id => @folder.id)
+      redirect_to edit_folder_path(@folder), :alert => "Please associate this folder with corresponding client first."
     end
   end
 

@@ -52,8 +52,7 @@ class FolderPermsController < ApplicationController
       end
     end
     # coming out, permissions should be all set, display flash message and navigate accordingly
-    flash[:notice] = "Permissions assigned as shown."
-    redirect_to :action => 'index'    
+    redirect_to :folder_perms_path, :notice => "Permissions assigned as shown."
   end
 
 end

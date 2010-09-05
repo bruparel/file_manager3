@@ -21,8 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "User account created and is ready for use."
-      redirect_to users_path
+      redirect_to users_path, :notice => "User account created and is ready for use."
     else
       render :action => 'new'
     end
@@ -75,13 +74,12 @@ class UsersController < ApplicationController
   def set_theme
     current_user.update_attribute(:theme, params[:id])
     flash[:notice] = "Set the new theme to #{params[:id]}"
-    redirect_to :back
+    redirect_to :back, :notice => "Set the new theme to #{params[:id]}"
   end
 
   def toggle_help
     current_user.update_attribute(:help_on, !current_user.help_on)
-    flash[:notice] = "System wide help has been turned " + (current_user.help_on ? "on" : "off")
-    redirect_to :back
+    redirect_to :back, :notice => "System wide help has been turned " + (current_user.help_on ? "on" : "off")
   end
 
 end

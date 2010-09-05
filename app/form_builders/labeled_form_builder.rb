@@ -38,7 +38,8 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
     t_label = (t_label.nil? ? field_name.to_s.humanize.titleize : t_label)
     if object.errors[field_name].any?
       temp_label = t_label + ": " +
-        @template.content_tag(:span, ([object.errors.on(field_name)].flatten.first.sub(/^\^/, '')), :class => 'error_message')
+        # @template.content_tag(:span, ([object.errors.on(field_name)].flatten.first.sub(/^\^/, '')), :class => 'error_message')
+        @template.content_tag(:span, ([object.errors[field_name]].flatten.first.sub(/^\^/, '')), :class => 'error_message')
     else
       temp_label = t_label
     end

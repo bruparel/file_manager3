@@ -22,8 +22,7 @@ class DocumentsController < ApplicationController
   def create
     @document = current_folder.documents.build(params[:document])
     if @document.save
-      flash[:notice] = "Successfully created document."
-      redirect_to documents_path
+      redirect_to documents_path, :notice => "Successfully created document."
     else
       render :action => 'new'
     end
@@ -37,7 +36,7 @@ class DocumentsController < ApplicationController
     @document = current_folder.documents.find(params[:id])
     if @document.update_attributes(params[:document])
       flash[:notice] = "Successfully updated document."
-      redirect_to documents_path
+      redirect_to documents_path, :notice => "Successfully updated document."
     else
       render :action => 'edit'
     end
@@ -47,7 +46,7 @@ class DocumentsController < ApplicationController
     @document = current_folder.documents.find(params[:id])
     @document.destroy
     flash[:notice] = "Successfully deleted document."
-    redirect_to documents_url
+    redirect_to documents_url, :notice => "Successfully deleted document."
   end
 
   def download_document
