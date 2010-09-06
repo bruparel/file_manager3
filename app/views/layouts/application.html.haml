@@ -45,7 +45,7 @@
               - if show_title?
                 %h2.title
                   %em
-                    = h yield(:title)
+                    = yield(:title)
               .inner
                 .flash
                   - flash.each do |key, value|

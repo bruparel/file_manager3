@@ -11,10 +11,10 @@
     = submit_tag "Select"
 - else
   - if @folder
-    = link_to h(current_client.client_name), :controller => 'clients', :action => 'set_current_client', :id => current_client.id
+    = link_to current_client.client_name, :controller => 'clients', :action => 'set_current_client', :id => current_client.id
     &gt;
     - for folder in @folder.ancestors.reverse
       = link_to h(folder.name), :action => 'nest', :id => folder.id
       &gt;
-    = h(@folder.name)
+    = @folder.name
   = render_crud_table(@folders,'folders',['id', 'name', 'owner'],@search_fields_array, nil,'folder_actions')

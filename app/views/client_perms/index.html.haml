@@ -17,7 +17,7 @@
         %td
           = client.id
         %td
-          = h client.client_name
+          = client.client_name
         %td
           = check_box_tag "client_ids[]", client.id, checked = client.permit
         - if client.permit

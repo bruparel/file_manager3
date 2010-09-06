@@ -7,7 +7,6 @@ class FoldersController < ApplicationController
     if current_client.folders.blank?    # does not have any folders yet, show base folders
       # and allow to select desired set of folders as a base to start with which they can
       # later customize, i.e., add/edit/delete to this base starter set
-      # @base_folders = BaseFolder.find(:all)
       @base_folders = BaseFolder.all
     else                                  # folders exist, resume normal processing
       perms = FolderPerm.find_all_by_user_id_and_client_id(current_user.id,current_client.id).map {|f| f.folder_id}

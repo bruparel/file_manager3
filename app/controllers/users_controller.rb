@@ -73,7 +73,6 @@ class UsersController < ApplicationController
 
   def set_theme
     current_user.update_attribute(:theme, params[:id])
-    flash[:notice] = "Set the new theme to #{params[:id]}"
     redirect_to :back, :notice => "Set the new theme to #{params[:id]}"
   end
 
