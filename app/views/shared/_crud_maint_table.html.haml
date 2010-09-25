@@ -24,7 +24,7 @@
     %tr{ :class => cycle("odd","even") }
       - columns.each_with_index do |col, i|
         %td{ :class => (i == 0 ? 'first' : nil) }
-          = eval("a_rec.#{col}")
+          = instance_eval("a_rec.#{col}")
       %td
         - if logged_in? && (actions == 'default')
           = link_to 'Edit', :controller => controller_name, :action => 'edit', :id => a_rec.id
