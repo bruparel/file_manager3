@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   layout :choose_layout
-  respond_to :js
+  respond_to :js, :html
   #ssl_required :new, :create
 
   def new

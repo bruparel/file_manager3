@@ -271,7 +271,15 @@
   }
 
   function fillFaceboxFromAjax(href, klass) {
-    $.get(href, function(data) { $.facebox.reveal(data, klass) })
+   // $.get(href, function(data) { $.facebox.reveal(data, klass) })
+   $.ajax({
+     type: "GET",
+     url: href,
+     dataType: "html",
+     success: function(data, textStatus, XMLHttpRequest) {
+       $.facebox.reveal(data, klass);
+     }
+   });
   }
 
   function skipOverlay() {
