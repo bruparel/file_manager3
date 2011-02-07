@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  layout :choose_layout
+  respond_to :js
   #ssl_required :new, :create
 
   def new
@@ -8,22 +10,36 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      @current_user = @user_session.user
-      unless @current_user.active
-        redirect_to root_path,
-          :error => "Your account is currently inactive, please contact the administrator to activate it again."
-      end
-      successful_log_in_message = "Logged in successfully."
-      if is_internal?
-        redirect_to clients_path, :notice => successful_log_in_message
-      else                # is a client
-        session[:client_id] = @current_user.client.id if @current_user.client
-        redirect_to root_path, :notice => successful_log_in_message
+      respond_to do |format|
+        format.html do 
+          flash[:notice] = "Login successful!"
+          redirect_to root_path
+        end
+        format.js { render :redirect }
       end
     else
-      flash.now[:error] = "Invalid login or password, or this account has been de-activated."
-      render :action => 'new'
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
+    # if @user_session.save
+    #   @current_user = @user_session.user
+    #   unless @current_user.active
+    #     redirect_to root_path,
+    #       :error => "Your account is currently inactive, please contact the administrator to activate it again."
+    #   end
+    #   successful_log_in_message = "Logged in successfully."
+    #   if is_internal?
+    #     redirect_to clients_path, :notice => successful_log_in_message
+    #   else                # is a client
+    #     session[:client_id] = @current_user.client.id if @current_user.client
+    #     redirect_to root_path, :notice => successful_log_in_message
+    #   end
+    # else
+    #   flash.now[:error] = "Invalid login or password, or this account has been de-activated."
+    #   render :action => 'new'
+    # end
   end
 
   def destroy
@@ -38,4 +54,11 @@ class UserSessionsController < ApplicationController
     session[:folder_id] = nil if session[:folder_id]
     redirect_to clients_path, :notice => "Current client unset.  Select a new client below."
   end
+
+  private
+
+  def choose_layout
+    (request.xhr?) ? nil : 'application'
+  end
+
 end

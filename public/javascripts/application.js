@@ -32,3 +32,17 @@ jQuery.fn.toggleOpposite = function(readonly)  {
 //$(document).ready(function() {
 //  $("#new_comment").submitWithAjax();
 //})
+
+$(document).ready(function() {
+	$('#login-link').facebox({
+		loadingImage : '/images/facebox/loading.gif',
+    closeImage   : '/images/facebox/closelabel.gif',
+	});
+	
+	$(document).bind('reveal.facebox', function() {
+		$('#new_user_session').submit(function() {
+			$.post(this.action, $(this).serialize(), function(){}, "script");
+			return false;
+		});
+	});
+});

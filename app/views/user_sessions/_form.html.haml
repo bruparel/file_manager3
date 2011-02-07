@@ -1,0 +1,13 @@
+= form_for @user_session, :url => user_sessions_path do |f|
+  = f.error_messages
+  %p
+    = f.label :username
+    %br/
+    = f.text_field :username
+  %p
+    = f.label :password
+    %br/
+    = f.password_field :password
+  %p
+    = f.submit "Log in"
+
